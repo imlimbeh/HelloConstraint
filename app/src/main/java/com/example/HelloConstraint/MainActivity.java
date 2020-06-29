@@ -1,22 +1,30 @@
-package com.example.practical_2_part_b;
+package com.example.HelloConstraint;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Button;
+
+import static android.graphics.Color.rgb;
 
 public class MainActivity extends AppCompatActivity {
 
     private int mCount = 0;
     private TextView mShowCount;
+    private Button zero;
+    private Button count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mShowCount = (TextView) findViewById(R.id.show_count);
+        zero = findViewById(R.id.button_zero);
+        count = findViewById(R.id.button_count);
     }
     public void showToast(View view) {
         Toast toast = Toast.makeText(this, R.string.toast_message, Toast.LENGTH_SHORT);
@@ -24,7 +32,16 @@ public class MainActivity extends AppCompatActivity {
     }
     public void countUp(View view) {
         ++mCount;
-        if (mShowCount != null)
+        if (mShowCount != null) {
             mShowCount.setText(Integer.toString(mCount));
+            zero.setBackgroundColor(Color.MAGENTA);
+            count.setBackgroundColor(Color.GREEN);
+        }
+    }
+    public void callMethod(View view) {
+        mCount = 0;
+        mShowCount.setText(Integer.toString(mCount));
+        zero.setBackgroundColor(0xffaaaaaa);
+        count.setBackgroundColor(rgb(98,0,238));
     }
 }
