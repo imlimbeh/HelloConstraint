@@ -35,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
         if (mShowCount != null) {
             mShowCount.setText(Integer.toString(mCount));
             zero.setBackgroundColor(Color.MAGENTA);
-            count.setBackgroundColor(Color.GREEN);
+            if(mCount%2==0)
+                count.setBackgroundColor(Color.GREEN);
+            else
+                count.setBackgroundColor(Color.YELLOW);
         }
     }
     public void callMethod(View view) {
